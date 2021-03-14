@@ -7,3 +7,5 @@ node_modules
 
 # DB
 dbConfig.js
+dbConnect.js
+

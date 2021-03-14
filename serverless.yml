@@ -1,0 +1,60 @@
+service: aws-assignment
+app: aws-assignment-app
+org: gopinathnyros
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+# functions:
+#   hello:
+#     handler: handler.hello
+
+# GET USERS
+functions:
+  getUsers:
+    handler: js/user.getUsers
+    events:
+      - http:
+          path: users
+          method: get
+          integration: lambda
+
+  getUser:
+    handler: js/user.getUser
+    events:
+      - http:
+          path: users/get
+          method: get
+          integration: lambda
+
+  addUser:
+    handler: js/user.addUser
+    events:
+      - http:
+          path: users/create
+          method: post
+          parameters:
+          integration: lambda
+
+  updateUser:
+    handler: js/user.updateUser
+    events:
+      - http:
+          path: users/update
+          method: put
+          parameters:
+          integration: lambda
+
+  deleteUser:
+    handler: js/user.deleteUser
+    events:
+      - http:
+          path: users/delete
+          method: delete
+          integration: lambda
+plugins:
+  - serverless-offline

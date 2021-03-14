@@ -3,3 +3,7 @@ node_modules
 
 # Serverless directories
 .serverless
+
+# DB
+dbConfig.js
+dbConnect.js
